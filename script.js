@@ -25,7 +25,7 @@ function playRound(playerSelection, computerSelection) {
         return lose
     }
 }
-
+const computerSelection = getComputerChoice();
 
 function game() {
 
@@ -47,7 +47,14 @@ function game() {
         } else if (result === lose) {
             computerScore++;
         }
+    }
 
+    if (playerScore > computerScore) {
+        console.log(`You win! with ${playerScore} hits vs ${computerScore} of the computer`);
+    } else if (playerScore < computerScore) {
+        console.log(`You lose, computer wins with ${computerScore} hits vs ${playerScore} of yours`);
+    } else if (playerScore === computerScore) {
+        console.log(`The game has ended in a tie`);
     }
 }
 
