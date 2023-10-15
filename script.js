@@ -6,11 +6,11 @@ function getComputerChoice() {
     return choice;
 }
 
-function playRound(playerSelection, computerSelection) {
-    const win = "You win!";
-    const lose = "You lose";
-    const draw = "Its a draw";
+const win = "You win!";
+const lose = "You lose";
+const draw = "Its a draw";
 
+function playRound(playerSelection, computerSelection) {
     if (playerSelection === computerSelection) {
         return draw 
 
@@ -25,7 +25,30 @@ function playRound(playerSelection, computerSelection) {
         return lose
     }
 }
-const computerSelection = getComputerChoice();
-const playerSelection = "rock";
-let result = playRound(playerSelection, computerSelection);
 
+
+function game() {
+
+    let playerScore = 0
+    let computerScore = 0
+
+    for (round = 1; round <= 5; round++) {
+        const playerSelection = prompt("Choose: rock, paper or scissors").toLowerCase();
+        const computerSelection = getComputerChoice();
+        const result = playRound(playerSelection, computerSelection);
+
+        console.log("Round: " + round);
+        console.log("Player chose: " + playerSelection);
+        console.log("Computer chose: " + computerSelection);
+        console.log("Result: " + result);
+
+        if (result === win) {
+            playerScore++;
+        } else if (result === lose) {
+            computerScore++;
+        }
+
+    }
+}
+
+game();
