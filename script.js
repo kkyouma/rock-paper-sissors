@@ -25,7 +25,6 @@ function playRound(playerSelection, computerSelection) {
         return lose
     }
 }
-const computerSelection = getComputerChoice();
 
 function game() {
 
