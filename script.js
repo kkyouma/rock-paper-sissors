@@ -19,10 +19,10 @@ function playRound(playerSelection, computerSelection) {
         (playerSelection === "scissors" && computerSelection === "paper") ||
         (playerSelection === "paper" && computerSelection === "rock")
     ) {
-        return win
+        return win + `, ${playerSelection} beats ${computerSelection}`;
 
     } else {
-        return lose
+        return lose + `, ${computerSelection} beats ${playerSelection}`;
     }
 }
 
