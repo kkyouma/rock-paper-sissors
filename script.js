@@ -12,7 +12,7 @@ const draw = "Its a draw";
 
 function playRound(playerSelection, computerSelection) {
     if (playerSelection === computerSelection) {
-        return draw 
+        return draw + `, You chose ${playerSelection} and computer chose ${computerSelection}`;
 
     } else if (
         (playerSelection === "rock" && computerSelection === "scissors") ||
