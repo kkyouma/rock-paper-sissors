@@ -1,4 +1,5 @@
 
+// Esto esta ok
 function getComputerChoice() {
     const options = ["rock", "paper", "scissors"];
     const randomSelection = Math.floor(Math.random() * 3);
@@ -25,15 +26,17 @@ function playRound(playerSelection, computerSelection) {
         return lose;
     }
 }
+//
+
 
 const rockBotton = document.getElementById("rock");
 const paperBotton = document.getElementById("paper");
 const scissorsBotton = document.getElementById("scissors");
 
-function game() {
+let playerScore = 0
+let computerScore = 0
 
-    let playerScore = 0
-    let computerScore = 0
+function game() {
 
     const playerSelection = prompt("Choose: rock, paper or scissors").toLowerCase();
     const computerSelection = getComputerChoice();
@@ -49,12 +52,10 @@ function game() {
     }
     }
 
-    if (playerScore > computerScore) {
+    if (playerScore === 5) {
         console.log(`You win! with ${playerScore} hits vs ${computerScore} of the computer`);
-    } else if (playerScore < computerScore) {
+    } else if (playerScore === 5) {
         console.log(`You lose, computer wins with ${computerScore} hits vs ${playerScore} of yours`);
-    } else if (playerScore === computerScore) {
-        console.log(`The game has ended in a tie`);
     }
 
 game();
