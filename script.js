@@ -47,27 +47,30 @@ scissorsButton.addEventListener("click", () => {
 
 let playerScore = 0
 let computerScore = 0
-
+let round = 0
 function game(option) {
 
     const playerSelection = option;
     const computerSelection = getComputerChoice();
-    let result = playRound(playerSelection, computerSelection)
+    let result = playRound(playerSelection, computerSelection);
 
-    //console.log("Round: " + round);
+    console.log("Round: " + ++round);
     console.log("Player chose: " + playerSelection);
     console.log("Computer chose: " + computerSelection);
     console.log("Result: " + result);
-    
+
     if (result === win) {
         playerScore++;
     } else if (result === lose) {
         computerScore++;
     }
 
+    console.log("Player score: " + playerScore);
+    console.log("Computer score: " + computerScore);
+
     if (playerScore === 5) {
         alert(`You win! with ${playerScore} hits vs ${computerScore} of the computer`);
-    } else if (playerScore === 5) {
+    } else if (computerScore === 5) {
         alert(`You lose, computer wins with ${computerScore} hits vs ${playerScore} of yours`);
     }
 }
