@@ -29,33 +29,45 @@ function playRound(playerSelection, computerSelection) {
 //
 
 
-const rockBotton = document.getElementById("rock");
-const paperBotton = document.getElementById("paper");
-const scissorsBotton = document.getElementById("scissors");
+const rockButton = document.getElementById("rock");
+const paperButton = document.getElementById("paper");
+const scissorsButton = document.getElementById("scissors");
+
+rockButton.addEventListener("click", () => {
+    game("rock");
+});
+
+paperButton.addEventListener("click", () => {
+    game("paper");
+});
+
+scissorsButton.addEventListener("click", () => {
+    game("scissors");
+});
 
 let playerScore = 0
 let computerScore = 0
 
-function game() {
+function game(option) {
 
-    const playerSelection = prompt("Choose: rock, paper or scissors").toLowerCase();
+    const playerSelection = option;
     const computerSelection = getComputerChoice();
-    const result = playRound(playerSelection, computerSelection);
-    console.log("Round: " + round);
+    let result = playRound(playerSelection, computerSelection)
+
+    //console.log("Round: " + round);
     console.log("Player chose: " + playerSelection);
     console.log("Computer chose: " + computerSelection);
     console.log("Result: " + result);
+    
     if (result === win) {
         playerScore++;
     } else if (result === lose) {
         computerScore++;
     }
-    }
 
     if (playerScore === 5) {
-        console.log(`You win! with ${playerScore} hits vs ${computerScore} of the computer`);
+        alert(`You win! with ${playerScore} hits vs ${computerScore} of the computer`);
     } else if (playerScore === 5) {
-        console.log(`You lose, computer wins with ${computerScore} hits vs ${playerScore} of yours`);
+        alert(`You lose, computer wins with ${computerScore} hits vs ${playerScore} of yours`);
     }
-
-game();
+}
